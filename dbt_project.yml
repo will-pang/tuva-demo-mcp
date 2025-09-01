@@ -1,11 +1,10 @@
-name: 'the_tuva_project_demo'
-version: '0.1.9'
+name: "the_tuva_project_demo"
+version: "0.1.9"
 config-version: 2
 
-profile: default
+profile: tuva-health-duckdb-demo
 
 vars:
-
   claims_enabled: true
   clinical_enabled: true
   provider_attribution_enabled: true
@@ -31,6 +30,7 @@ clean-targets:
 
 seeds:
   the_tuva_project_demo:
+    +database: tuva_project_demo
     eligibility:
       +post-hook: "{{ the_tuva_project.load_seed('tuva-public-resources/versioned_tuva_synthetic_data/0.14.0','eligibility.csv',headers=true) }}"
     lab_result:
@@ -43,3 +43,7 @@ seeds:
       +post-hook: "{{ the_tuva_project.load_seed('tuva-public-resources/versioned_tuva_synthetic_data/0.14.0','pharmacy_claim.csv',headers=true) }}"
     provider_attribution:
       +post-hook: "{{ the_tuva_project.load_seed('tuva-public-resources/versioned_tuva_synthetic_data/0.14.0','provider_attribution.csv',headers=true) }}"
+
+models:
+  the_tuva_project:
+    +database: tuva_project_demo
