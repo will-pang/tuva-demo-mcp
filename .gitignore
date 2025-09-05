@@ -6,6 +6,7 @@ logs/
 
 # DuckDB 
 *.duckdb
+*.duckdb.wal
 
 # Python cache files
 __pycache__/
