@@ -13,7 +13,7 @@ def run_dbt_command(cmd: list[str], cwd: str = "tuva-health-demo") -> None:
     try:
         result = subprocess.run(cmd, cwd=cwd, check=True, text=True)
         typer.echo(result.stdout)
-        typer.echo(f"✅ dbt commands: {cmd} completed successfully")
+        typer.echo(f"✅ dbt {cmd[1]} completed successfully")
         return result
     except subprocess.CalledProcessError as e:
         typer.echo(f"❌ {' '.join(cmd)} failed with exit code {e.returncode}")
