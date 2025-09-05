@@ -9,7 +9,7 @@ Assuming you have [UV](https://docs.astral.sh/uv/getting-started/installation/) 
 ```bash
 # Clone the repository
 git clone https://github.com/will-pang/tuva-demo-mcp
-cd m3
+cd tuva-demo-mcp
 ```
 
 **Step 2: Create `UV` Virtual Environment**
