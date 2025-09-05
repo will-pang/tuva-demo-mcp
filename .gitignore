@@ -7,3 +7,6 @@ logs/
 dbt_packages/
 package-lock.yml
 *.duckdb
+
+# Python cache files
+__pycache__/

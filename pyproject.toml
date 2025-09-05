@@ -9,4 +9,8 @@ dependencies = [
     "dbt-duckdb>=1.9.4",
     "matplotlib>=3.10.6",
     "pandas>=2.3.2",
+    "typer>=0.17.3",
 ]
+
+[project.scripts]
+osler = "osler.cli:app"

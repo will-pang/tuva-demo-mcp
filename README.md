@@ -1,6 +1,6 @@
-# The Tuva Project Demo
+# Osler: The Tuva Project Demo + MCP
 
-## ✅ How to get started
+## 🗄️ Database Configuration
 
 1. Download UV
 2. Run `uv venv`
