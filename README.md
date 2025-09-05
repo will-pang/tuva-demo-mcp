@@ -34,7 +34,7 @@ uv sync
 
 ### 🗄️ Database Configuration
 
-1. **Download demo database**:
+1. **Download [tuva-health demo](https://github.com/tuva-health/demo) database into DuckDB**:
    ```bash
    osler init
    ```
