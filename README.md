@@ -1,5 +1,7 @@
 # Osler: The Tuva Project Demo + MCP
 
+[Sir William Osler](https://en.wikipedia.org/wiki/William_Osler)
+
 ### 📦 Installation
 
 Assuming you have [UV](https://docs.astral.sh/uv/getting-started/installation/) installed.
