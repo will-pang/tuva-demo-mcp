@@ -1,3 +1,6 @@
+# Osler
+osler_data/metadata/*
+
 # DBT
 dbt_packages/
 target/
