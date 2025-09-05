@@ -6,3 +6,5 @@
 2. Run `uv venv`
 3. Run `uc sync`
 4. Run `source .venv/bin/activate`
+
+---
