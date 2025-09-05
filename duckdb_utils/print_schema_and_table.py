@@ -1,6 +1,6 @@
 import duckdb
 
-conn = duckdb.connect("tuva_project_demo.duckdb")
+conn = duckdb.connect("osler_data/databases/tuva_project_demo.duckdb")
 
 # Check schemas
 schemas = conn.execute("SELECT schema_name FROM information_schema.schemata").fetchall()
