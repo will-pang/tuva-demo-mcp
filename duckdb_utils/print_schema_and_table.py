@@ -1,8 +1,6 @@
 import duckdb
-import pandas as pd
-import matplotlib.pyplot as plt
 
-conn = duckdb.connect('tuva_project_demo.duckdb')
+conn = duckdb.connect("tuva_project_demo.duckdb")
 
 # Check schemas
 schemas = conn.execute("SELECT schema_name FROM information_schema.schemata").fetchall()
@@ -14,7 +12,9 @@ for schema in schemas:
 print("\nTables by schema:")
 for schema in schemas:
     schema_name = schema[0]
-    tables = conn.execute(f"SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema_name}'").fetchall()
+    tables = conn.execute(
+        f"SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema_name}'"
+    ).fetchall()
     if tables:
         print(f"\n{schema_name}:")
         for table in tables:
