@@ -8,25 +8,29 @@ app = typer.Typer(
     rich_markup_mode="markdown",
 )
 
+def run_dbt_command(cmd: list[str], cwd: str = "tuva-health-demo") -> None:
+    """Run a dbt command and handle errors."""
+    try:
+        result = subprocess.run(cmd, cwd=cwd, check=True, text=True)
+        typer.echo(result.stdout)
+        typer.echo(f"✅ dbt commands: {cmd} completed successfully")
+        return result
+    except subprocess.CalledProcessError as e:
+        typer.echo(f"❌ {' '.join(cmd)} failed with exit code {e.returncode}")
+        if e.stderr:
+            typer.echo(e.stderr)
+        raise typer.Exit(1)
+    except FileNotFoundError:
+        typer.echo("❌ dbt command not found. Please ensure dbt is installed.")
+        raise typer.Exit(1)
+
 @app.command()
 def init(project_name: str):
-      """Run dbt build on Tuva Health Demo in DuckDB"""
-      typer.echo(f"Initializing project: {project_name}")
-
-      try:
-          result = subprocess.run(["dbt", "build"], 
-                                  cwd="tuva-health-demo",
-                                  check=True,
-                                  text=True)
-          typer.echo("✅ dbt build completed successfully")
-          typer.echo(result.stdout)
-      except subprocess.CalledProcessError as e:
-          typer.echo(f"❌ dbt build failed with exit code {e.returncode}")
-          typer.echo(e.stderr)
-          raise typer.Exit(1)
-      except FileNotFoundError:
-          typer.echo("❌ dbt command not found. Please ensure dbt is installed.")
-          raise typer.Exit(1)
+    """Run dbt build on Tuva Health Demo in DuckDB"""
+    typer.echo(f"Initializing project: {project_name}")
+    
+    run_dbt_command(["dbt", "deps"])
+    run_dbt_command(["dbt", "build"])
 
 if __name__ == "__main__":
     app()
