@@ -47,3 +47,5 @@ seeds:
 models:
   the_tuva_project:
     +database: tuva_project_demo
+
+target-path: "../osler_data/metadata/custom-docs"
