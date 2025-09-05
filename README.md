@@ -32,8 +32,6 @@ uv sync
 # Do not forget to use `uv run` to any subsequent commands to ensure you're using the `uv` virtual environment
 ```
 
-`uv pip install -e .`
-
 ### 🗄️ Database Configuration
 
 1. **Download demo database**:
