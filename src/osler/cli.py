@@ -25,7 +25,7 @@ def run_dbt_command(cmd: list[str], cwd: str = "tuva-health-demo") -> None:
         raise typer.Exit(1)
 
 @app.command()
-def init():
+def init(project_name):
     """Run dbt build and store in DuckDB"""
     typer.echo(f"Initializing DBT Build of Tuva-Health in DuckDB")
     
