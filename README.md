@@ -1,5 +1,7 @@
 # Osler: The Tuva Project Demo + MCP
 
+`uv pip install -e .`
+
 ## 🗄️ Database Configuration
 
 1. Download UV
