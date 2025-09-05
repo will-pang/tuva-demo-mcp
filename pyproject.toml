@@ -14,8 +14,39 @@ dependencies = [
     "dbt-duckdb>=1.9.4",
     "matplotlib>=3.10.6",
     "pandas>=2.3.2",
+    "pre-commit>=4.3.0",
+    "ruff>=0.12.12",
     "typer>=0.17.3",
 ]
 
 [project.scripts]
 osler = "osler.cli:app"
+
+[tool.pdm.version]
+source = "file"
+path = "src/__init__.py"
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # Pyflakes
+    "I",  # isort (import sorting)
+    "UP", # pyupgrade (modernize syntax)
+    "RUF",# Ruff-specific rules
+]
+
+ignore = [
+    "E501",  # Line too long (let ruff-format handle line length)
+]
+
+[tool.ruff.format]
+# Ruff's default formatter will be used.
+
+[tool.ruff.lint.isort]
+known-first-party = ["m3"]

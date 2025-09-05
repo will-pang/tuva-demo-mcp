@@ -1,5 +1,6 @@
-import typer
 import subprocess
+
+import typer
 
 app = typer.Typer(
     name="osler",
@@ -7,6 +8,7 @@ app = typer.Typer(
     add_completion=False,
     rich_markup_mode="markdown",
 )
+
 
 def run_dbt_command(cmd: list[str], cwd: str = "tuva-health-demo") -> None:
     """Run a dbt command and handle errors."""
@@ -24,14 +26,16 @@ def run_dbt_command(cmd: list[str], cwd: str = "tuva-health-demo") -> None:
         typer.echo("❌ dbt command not found. Please ensure dbt is installed.")
         raise typer.Exit(1)
 
+
 @app.command()
 def init(project_name):
     """Run dbt build and store in DuckDB"""
-    typer.echo(f"Initializing DBT Build of Tuva-Health in DuckDB")
-    
+    typer.echo("Initializing DBT Build of Tuva-Health in DuckDB")
+
     run_dbt_command(["dbt", "deps"])
     run_dbt_command(["dbt", "build"])
     run_dbt_command(["dbt", "docs", "generate"])
+
 
 if __name__ == "__main__":
     app()
