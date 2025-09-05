@@ -1136,9 +1136,8 @@ wheels = [
 ]
 
 [[package]]
-name = "tuva-health-duckdb-demo"
-version = "0.1.0"
-source = { virtual = "." }
+name = "tuva-demo-mcp"
+source = { editable = "." }
 dependencies = [
     { name = "dbt-core" },
     { name = "dbt-duckdb" },
